@@ -1,15 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Logo } from "@/components/Logo";
 import laurenHeadshot from "@/assets/lauren-headshot.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ACRO Consulting | Build the foundation your business needs" },
-      { name: "description", content: "ACRO helps small, service-based business owners build the back office and foundation that lets the business run without them. Find what's breaking down, build the fix, and learn to run it yourself." },
-      { property: "og:title", content: "ACRO Consulting — Build the foundation your business needs" },
-      { property: "og:description", content: "ACRO helps small, service-based business owners build the back office and foundation that lets the business run without them. Find what's breaking down, build the fix, and learn to run it yourself." },
+      { title: "Lauren Kasten | Your business runs on you" },
+      { name: "description", content: "Lauren Kasten helps small business owners build simple systems around what they actually want, for the business and the life it\'s running on." },
+      { property: "og:title", content: "Lauren Kasten | Your business runs on you" },
+      { property: "og:description", content: "Lauren Kasten helps small business owners build simple systems around what they actually want, for the business and the life it\'s running on." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://acro-consulting.com/" },
     ],
@@ -20,9 +19,10 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          name: "ACRO Consulting",
+          name: "Lauren Kasten",
+          legalName: "ACRO Consulting LLC",
           description:
-            "ACRO helps small, service-based business owners build the back office and foundation that lets the business run without them. Find what's breaking down, build the fix, and learn to run it yourself.",
+            "Lauren Kasten helps small business owners build simple systems around what they actually want, for the business and the life it\'s running on.",
           url: "https://acro-consulting.com/",
           founder: {
             "@type": "Person",
@@ -126,7 +126,7 @@ function openCalendlyPopup(e?: React.MouseEvent) {
 
 function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const activeSection = useActiveSection(["top", "about", "how", "contact"]);
+  const activeSection = useActiveSection(["top", "how", "work", "about", "contact"]);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -137,9 +137,8 @@ function Nav() {
   };
 
   const navLinks = [
+    { label: "Work", id: "work" },
     { label: "About", id: "about" },
-    { label: "How It Works", id: "how" },
-    { label: "Contact", id: "contact" },
   ];
 
   const linkClass = (id: string) =>
@@ -154,7 +153,7 @@ function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <a href="#top" onClick={(e) => { e.preventDefault(); scrollToSection("top"); }} className="inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm">
-          <Logo className="h-6 w-auto" />
+          <span className="font-serif text-xl font-medium tracking-tight text-foreground">Lauren Kasten</span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm">
           {navLinks.map((link) => (
@@ -173,7 +172,7 @@ function Nav() {
             onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-navy text-background text-sm font-semibold hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:-translate-y-0.5 focus-visible:shadow-md transition-all duration-200"
           >
-Contact
+Let's talk
             <ArrowRight size={16} />
           </a>
         </nav>
@@ -208,7 +207,7 @@ Contact
               onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
               className="mt-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-navy text-background text-sm font-semibold hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:-translate-y-0.5 focus-visible:shadow-md transition-all duration-200"
             >
-              Contact
+              Let's talk
               <ArrowRight size={16} />
             </a>
           </nav>
@@ -218,102 +217,29 @@ Contact
   );
 }
 
+const ctaClass =
+  "inline-flex items-center gap-3 px-8 py-4 rounded-full bg-navy text-background text-lg font-semibold hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:-translate-y-0.5 focus-visible:shadow-lg transition-all duration-200 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)]";
+
 function Hero() {
   return (
-    <section id="top" className="pt-40 pb-14 md:pt-48 md:pb-20 scroll-mt-24">
+    <section id="top" className="pt-40 pb-20 md:pt-48 md:pb-28 scroll-mt-24">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="flex items-center gap-3 mb-8 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-          <span className="gold-rule" />
-          <span>Consulting for small, service-based business owners</span>
-        </div>
         <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.02] text-foreground">
-          You're holding your whole business together.
+          Your business runs on you.
           <br />
           <span className="text-[color:var(--navy)]">That's </span>
           <span className="text-[color:var(--navy)] highlight-gold">the problem I fix.</span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-[1.5]">
-          ACRO builds the back office and foundation your business is missing, so it can finally run without you.
+          I help small business owners build simple systems around what they actually want, for the business and the life it's running on.
         </p>
         <div className="mt-10 flex flex-col items-start gap-3">
-          <button
-            type="button"
-            onClick={openCalendlyPopup}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-navy text-background text-lg font-semibold hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:-translate-y-0.5 focus-visible:shadow-lg transition-all duration-200 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)]"
-          >
-Let's talk
+          <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
+            Let's talk
             <ArrowRight size={22} />
           </button>
           <p className="text-base text-muted-foreground">15 minutes, no cost, no pitch.</p>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function FoundationProblem() {
-  return (
-    <section className="pt-14 md:pt-20 pb-28 md:pb-40 bg-paper">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="rounded-3xl border border-border bg-[color:var(--cream)] pt-5 md:pt-6 pb-8 md:pb-12 px-8 md:px-12">
-          <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
-            Your business can't run without you. Here's why.
-          </h2>
-          <div className="mt-10 space-y-6 max-w-3xl">
-            <p className="text-lg md:text-xl font-medium text-foreground leading-[1.5]">
-              Nothing gets decided unless it goes through you.
-            </p>
-            <p className="text-lg md:text-xl font-medium text-foreground leading-[1.5]">
-              Only you know where any of it lives.
-            </p>
-            <p className="text-lg md:text-xl font-medium text-foreground leading-[1.5]">
-              The business only runs when you do.
-            </p>
-          </div>
-          <div className="mt-10 space-y-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
-            <p>
-              You got here on hustle. But hustle means it all runs through you, and that only works for so long.
-            </p>
-            <p>
-              A foundation is what holds the business up when you're not there. Your team knows what to do on their own. Your back office lives in one place. The work runs whether you're in the room or not.
-            </p>
-            <p className="text-foreground font-medium">
-              One more tool won't get you there. A foundation will.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function WhatIDo() {
-  return (
-    <section className="py-28 md:py-40 bg-paper">
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
-          Here's what I actually do.
-        </h2>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
-          You might already know what you need, or have a hunch. Either way, here's the work:
-        </p>
-        <ul className="mt-10 space-y-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
-          <li>
-            <span className="font-semibold text-foreground">Set up your back office</span> so everything lives in one place, not scattered across apps, docs, and your head.
-          </li>
-          <li>
-            <span className="font-semibold text-foreground">Build the repeatable steps</span> for the things that only happen when you do them, like intake, follow-up, and onboarding.
-          </li>
-          <li>
-            <span className="font-semibold text-foreground">Bring in the right tools</span> for your business, AI included, and set them up so they actually work.
-          </li>
-          <li>
-            <span className="font-semibold text-foreground">Teach you and your team</span> to run all of it, so when I step back, nothing falls apart.
-          </li>
-        </ul>
-        <p className="mt-10 text-lg md:text-xl text-foreground leading-[1.5] max-w-3xl font-medium">
-          That's the foundation. Not a binder you'll never open. The actual way your business runs without you.
-        </p>
       </div>
     </section>
   );
@@ -328,93 +254,69 @@ function SectionLabel({ children }: { children: string }) {
   );
 }
 
-function WhoFor() {
-  const items = [
-    "You're good at what you do.",
-    "You have a team, but you're still holding everything together.",
-    "You've tried tools and processes that never really stuck.",
-    "You know something is leaking (leads, communication, team clarity) but you're not sure exactly where.",
-    "You're ready to actually fix it, not just talk about it.",
-  ];
+function TheQuestion() {
   return (
-    <section className="py-28 md:py-40 bg-cream">
+    <section className="py-24 md:py-36 bg-cream">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>Who this is for</SectionLabel>
-        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-2xl">
-          This isn't for everyone. It's for a specific owner.
-        </h2>
-        <ul className="mt-12 grid gap-px bg-border border border-border rounded-2xl overflow-hidden">
-          {items.map((t, i) => (
-            <li key={i} className="bg-paper px-6 md:px-10 py-6 md:py-7 flex gap-5 items-start">
-              <span className="font-sans text-[color:var(--gold)] text-lg leading-none mt-1 tabular-nums">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-base md:text-lg text-foreground leading-[1.5]">{t}</p>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-10 font-sans italic font-medium text-xl md:text-2xl text-foreground">
-          If that's you, you're in the right place.
+        <SectionLabel>I start with one question</SectionLabel>
+        <p className="font-serif text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-4xl">
+          "What do you want that your business keeps getting in the way of?"
         </p>
-        <div className="mt-8 flex flex-col items-start gap-3">
-          <button
-            type="button"
-            onClick={openCalendlyPopup}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-navy text-background text-lg font-semibold hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:-translate-y-0.5 focus-visible:shadow-lg transition-all duration-200 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)]"
-          >
-Let's talk
-            <ArrowRight size={22} />
-          </button>
-          <p className="text-base text-muted-foreground">Fifteen minutes, no cost, no pitch.</p>
-        </div>
+        <p className="mt-10 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
+          Most people start with the business. I start with you. Once I know what you're after, we look at what's eating your time and build around that.
+        </p>
       </div>
     </section>
   );
 }
 
-function NotBehind() {
-  return (
-    <section className="py-28 md:py-40 bg-cream">
-      <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>How I work</SectionLabel>
-        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
-          You're not behind. You just haven't had anyone help it make sense.
-        </h2>
-        <div className="mt-10 md:mt-12 space-y-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
-          <p>
-            Everything feels like it's moving fast right now, especially with AI. Most owners I talk to are using it in the most basic way, or avoiding it, because it's one more thing on a list that's already too long.
-          </p>
-          <p>
-            Here's what I do differently. I don't sell you AI, and I don't hand you a pile of tools and wish you the best. I build the foundation with you, and I find the right tools for what your business actually needs and set them up to do the job. Because I teach the whole way through, you pick up how to actually use those tools, AI and all, for your own business, without ever signing up for some course on the side.
-          </p>
-          <p className="text-foreground font-medium">
-            You stop feeling like you're falling behind, because you're not anymore.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HowItWorks() {
+function HowIWork() {
   const steps = [
-    { title: "Find it", body: "Find where things are breaking down and why." },
-    { title: "Build it", body: "Create one clear, simple process together, starting with where the money is leaking right now." },
-    { title: "Hand it off", body: "You and your team learn to run it without me." },
+    { title: "Listen", body: "The first conversation is about you, not just the business." },
+    { title: "Fit", body: "Everything gets built around how you actually work and live." },
+    { title: "Teach", body: "You leave able to run it without me." },
   ];
   return (
-    <section id="how" className="py-28 md:py-40 bg-paper scroll-mt-24">
+    <section id="how" className="py-24 md:py-36 bg-paper scroll-mt-24">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>How ACRO works</SectionLabel>
-        <h2 className="text-3xl md:text-5xl font-medium leading-tight max-w-2xl">Three steps. Nothing fancy.</h2>
-        <div className="mt-16 grid md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
-          {steps.map((s, i) => (
+        <SectionLabel>How I work</SectionLabel>
+        <div className="mt-6 grid md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+          {steps.map((s) => (
             <div key={s.title} className="bg-background p-8 md:p-10">
-              <div className="font-sans text-5xl text-[color:var(--gold)] mb-6 tabular-nums">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <h3 className="text-xl md:text-2xl font-medium leading-tight mb-3 text-foreground">{s.title}</h3>
+              <h3 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-4 text-foreground">{s.title}</h3>
               <p className="text-base md:text-lg text-muted-foreground leading-[1.5]">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Work() {
+  const stories = [
+    {
+      who: "A youth sports company",
+      body: "Everything lived in the owner's head. There were no systems and no processes. I built a dashboard the whole leadership team can use, a new website, and one connected home for their systems, set up so the company can grow into it. Cutting the extra apps and services saved them money.",
+    },
+    {
+      who: "A property services company",
+      body: "The owner was juggling invoicing and proposals across a pile of separate systems, and requests came in by text all day. I built an app that tracks revenue for every service and handles invoicing and proposals, so requests come through the app instead of his phone. I designed the logo too.",
+    },
+    {
+      who: "A childcare director",
+      body: "She wanted to feel her healthiest by her daughter's wedding. Accountability was the piece missing from every health and fitness program she'd tried before. I built her a personal app with a daily check-in and everything she needs in one place. She has checked in every day.",
+    },
+  ];
+  return (
+    <section id="work" className="py-24 md:py-36 bg-cream scroll-mt-24">
+      <div className="mx-auto max-w-5xl px-6">
+        <SectionLabel>Work</SectionLabel>
+        <div className="mt-6 space-y-px bg-border border border-border rounded-2xl overflow-hidden">
+          {stories.map((s) => (
+            <div key={s.who} className="bg-paper px-8 md:px-10 py-8 md:py-10">
+              <h3 className="text-xl md:text-2xl font-medium leading-tight mb-4 text-foreground">{s.who}</h3>
+              <p className="text-base md:text-lg text-muted-foreground leading-[1.6] max-w-3xl">{s.body}</p>
             </div>
           ))}
         </div>
@@ -425,39 +327,35 @@ function HowItWorks() {
 
 function About() {
   return (
-    <section id="about" className="py-28 md:py-40 bg-cream scroll-mt-24">
+    <section id="about" className="py-24 md:py-36 bg-paper scroll-mt-24">
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1fr_1.4fr] gap-12 md:gap-20 items-start">
         <div className="md:sticky md:top-28">
           <div className="aspect-[4/5] overflow-hidden rounded-sm bg-muted shadow-[0_30px_60px_-30px_rgba(0,0,0,0.25)]">
             <img
               src={laurenHeadshot}
-              alt="Lauren Kasten, founder of ACRO Consulting"
+              alt="Lauren Kasten"
               className="w-full h-full object-cover grayscale"
               loading="lazy"
             />
           </div>
           <p className="mt-5 text-sm text-muted-foreground">
-            <span className="text-foreground font-medium">Lauren Kasten</span> — Founder, ACRO Consulting
+            <span className="text-foreground font-medium">Lauren Kasten</span>
           </p>
         </div>
         <div>
-          <SectionLabel>I know what stuck feels like.</SectionLabel>
+          <SectionLabel>I never left teaching</SectionLabel>
           <div className="space-y-8 text-lg md:text-xl leading-[1.5] text-foreground">
             <p>
-              Not just stuck in life. In business too. I've felt it myself, and I've watched it up close in the companies I've worked inside. Capable people, real ideas, everything routing through one person until nothing can move without them.
-            </p>
-            <p>I'm Lauren, founder of ACRO.</p>
-            <p>
-              I got my master's thinking I'd spend my career as an elementary teacher. That's not how it went.
+              I got my master's thinking I'd spend my career as an elementary teacher. That's not how it went. The next 11 years zigzagged: teaching, then coaching and managing in fitness, back to teaching, then corporate recruiting.
             </p>
             <p>
-              The next 11 years zigzagged: teaching, then coaching and managing in fitness, back to teaching, then corporate recruiting. For a long time I couldn't see how any of it fit together. Different worlds, but I kept feeling the same thing in each one: all in, until I stopped learning, then stuck and restless, sure I'd taken a wrong turn.
+              The same thing kept happening in every job. Fly Feet members asked me to coach them one on one on their health and nutrition. Candidates told me they loved working with me because I listened, and the jobs I brought them fit what they wanted. I was teaching, and I was building trust.
             </p>
             <p>
-              It took me a long time to see it wasn't a wrong turn. Getting stuck wasn't me failing. It's part of how I learn and grow, and what matters is what I do to move through it. The throughline was there the whole time. Two things were always true, no matter the job: I was teaching, and I was building trust. Real trust, the kind people feel when they know you actually listened. Building trust is the part people say you can't teach. It's the part I lead with.
+              Now I do it with small business owners. I see people working around the clock with apps and tools scattered everywhere, none of it set up for how they work. There's a better way. I help you find it, build it, and run it without me.
             </p>
-            <p>
-              I never left teaching. I just took it out of the classroom. Now I do it with owners who feel the way I have, holding everything together, unsure of the next move. I help you find where it's breaking down, build the foundation underneath it, and get confident running it on your own.
+            <p className="font-medium">
+              I work with owners who are great at what they do and tired of carrying all of it alone.
             </p>
           </div>
         </div>
@@ -648,13 +546,13 @@ function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className={labelClass}>What's feeling most broken right now?</label>
+        <label htmlFor="message" className={labelClass}>What do you want that your business keeps getting in the way of?</label>
         <textarea
           id="message"
           name="message"
           rows={4}
           required
-          placeholder="Tell me what's happening, what's stuck, and what you'd love to change..."
+          placeholder="Write as much or as little as you want."
           value={values.message}
           onChange={(e) => updateField("message", e.target.value)}
           onBlur={() => handleBlur("message")}
@@ -688,7 +586,7 @@ function ContactForm() {
             disabled={submitting}
             className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-foreground text-foreground text-base font-semibold hover:bg-foreground/5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:-translate-y-0.5 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
-            {submitting ? "Sending..." : "Send Message"}
+            {submitting ? "Sending..." : "Send"}
             {!submitting && <ArrowRight size={18} />}
           </button>
         </div>
@@ -705,11 +603,8 @@ function Contact() {
         <div>
           <SectionLabel>Contact</SectionLabel>
           <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground">
-            Ready to stop holding everything together alone?
+            Let's talk.
           </h2>
-          <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-md">
-            Let's figure out what's breaking down and build the foundation to fix it.
-          </p>
         </div>
         <div className="md:pt-14">
           <ContactForm />
@@ -723,9 +618,7 @@ function Footer() {
   return (
     <footer className="border-t border-border py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-sm text-muted-foreground">
-        <div className="inline-flex items-center">
-          <Logo className="h-6 w-auto" />
-        </div>
+        <div className="font-serif text-base font-medium text-foreground">Lauren Kasten</div>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
           <Link
             to="/guides/operational-efficiency"
@@ -754,7 +647,7 @@ function Footer() {
             Contact
           </a>
         </div>
-        <div>© {new Date().getFullYear()} ACRO Consulting. All rights reserved.</div>
+        <div>© {new Date().getFullYear()} Lauren Kasten · ACRO Consulting LLC</div>
       </div>
     </footer>
   );
@@ -766,11 +659,9 @@ function Index() {
       <Nav />
       <main className="flex flex-col gap-6 md:gap-8">
         <Hero />
-        <FoundationProblem />
-        <WhatIDo />
-        <WhoFor />
-        <NotBehind />
-        <HowItWorks />
+        <TheQuestion />
+        <HowIWork />
+        <Work />
         <About />
         <Contact />
       </main>
