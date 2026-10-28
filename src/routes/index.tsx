@@ -620,12 +620,6 @@ function Footer() {
       <div className="mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-sm text-muted-foreground">
         <div className="font-serif text-base font-medium text-foreground">Lauren Kasten</div>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
-          <Link
-            to="/guides/operational-efficiency"
-            className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
-          >
-            Guides
-          </Link>
           <a
             href="mailto:hello@acro-consulting.com"
             className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
