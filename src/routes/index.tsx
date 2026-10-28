@@ -566,16 +566,7 @@ function ContactForm() {
       </div>
 
       <div className="pt-4">
-        <button
-          type="button"
-          onClick={openCalendlyPopup}
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-navy text-background text-lg font-semibold hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:-translate-y-0.5 focus-visible:shadow-lg transition-all duration-200 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)]"
-        >
-          Let's talk
-          <ArrowRight size={22} />
-        </button>
-        <p className="mt-3 text-sm text-foreground/70">15 minutes, no cost, no pitch.</p>
-        <div className="mt-8 pt-8 border-t border-border">
+        <div>
           {submitError && (
             <p className="mb-4 text-sm text-[color:var(--destructive)]" role="alert">
               {submitError}
@@ -584,10 +575,10 @@ function ContactForm() {
           <button
             type="submit"
             disabled={submitting}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-foreground text-foreground text-base font-semibold hover:bg-foreground/5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:-translate-y-0.5 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+            className={`${ctaClass} disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0`}
           >
             {submitting ? "Sending..." : "Send"}
-            {!submitting && <ArrowRight size={18} />}
+            {!submitting && <ArrowRight size={22} />}
           </button>
         </div>
       </div>
