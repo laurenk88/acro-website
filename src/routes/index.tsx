@@ -6,9 +6,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Lauren Kasten | Your business runs on you" },
-      { name: "description", content: "Lauren Kasten helps small business owners build simple systems around what they actually want, for the business and the life it\'s running on." },
+      { name: "description", content: "Lauren Kasten helps small business owners shape their business around the life they want to live." },
       { property: "og:title", content: "Lauren Kasten | Your business runs on you" },
-      { property: "og:description", content: "Lauren Kasten helps small business owners build simple systems around what they actually want, for the business and the life it\'s running on." },
+      { property: "og:description", content: "Lauren Kasten helps small business owners shape their business around the life they want to live." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://acro-consulting.com/" },
     ],
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
           name: "Lauren Kasten",
           legalName: "ACRO Consulting LLC",
           description:
-            "Lauren Kasten helps small business owners build simple systems around what they actually want, for the business and the life it\'s running on.",
+            "Lauren Kasten helps small business owners shape their business around the life they want to live.",
           url: "https://acro-consulting.com/",
           founder: {
             "@type": "Person",
@@ -231,7 +231,7 @@ function Hero() {
           <span className="text-[color:var(--navy)] highlight-gold">the problem I fix.</span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-[1.5]">
-          I help small business owners build simple systems around what they actually want, for the business and the life it's running on.
+          I help small business owners shape their business around the life they want to live.
         </p>
         <div className="mt-10 flex flex-col items-start gap-3">
           <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
