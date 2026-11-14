@@ -396,16 +396,16 @@ function About() {
           </p>
         </div>
         <div>
-          <SectionLabel>I never left teaching</SectionLabel>
-          <div className="space-y-8 text-lg md:text-xl leading-[1.5] text-foreground">
+          <SectionLabel>What I believe</SectionLabel>
+          <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground">
+            Every problem has a solution.
+          </h2>
+          <div className="mt-8 space-y-8 text-lg md:text-xl leading-[1.5] text-foreground">
             <p>
-              I got my master's thinking I'd spend my career as an elementary teacher. That's not how it went. The next 11 years zigzagged: teaching, then coaching and managing in fitness, back to teaching, then corporate recruiting.
+              It's one of the beliefs I've lived by since becoming an entrepreneur. I keep listening until I find the real fix, and I don't stop at a band-aid.
             </p>
             <p>
-              The same thing kept happening in every job. Fly Feet members asked me to coach them one on one on their health and nutrition. Candidates told me they loved working with me because I listened, and the jobs I brought them fit what they wanted. I was teaching, and I was building trust.
-            </p>
-            <p>
-              Now I do it with small business owners. I see people working around the clock with apps and tools scattered everywhere, none of it set up for how they work. There's a better way. I help you find it, build it, and run it without me.
+              People have trusted me with their problems in every job I've had. Fly Feet members asked me to coach them one on one on their health and nutrition. Candidates told me they loved working with me because I listened, and the jobs I brought them fit what they wanted.
             </p>
             <p className="font-medium">
               I work with owners who are great at what they do and tired of carrying all of it alone.
