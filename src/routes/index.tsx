@@ -224,6 +224,7 @@ function Hero() {
   return (
     <section id="top" className="pt-40 pb-20 md:pt-48 md:pb-28 scroll-mt-24">
       <div className="mx-auto max-w-5xl px-6">
+        <SectionLabel>Every problem has a solution</SectionLabel>
         <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.02] text-foreground">
           Your business runs on you.
           <br />
@@ -277,7 +278,7 @@ function Different() {
         </h2>
         <div className="mt-10 space-y-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
           <p>
-            I was an elementary teacher and a fitness coach before I ever consulted, and I still work like one. I listen until I understand what you need. Then we build the fix together, and I teach you and your team to run it, so when I step back, you keep going without me.
+            I was an elementary teacher, a fitness coach, and a technical recruiter before I ever consulted, and I still work like one. I listen until I understand what you need. Then we build the fix together, and I teach you and your team to run it, so when I step back, you keep going without me.
           </p>
           <p className="text-foreground font-medium">
             I won't recommend a tool I haven't used myself, and I'll tell you the truth even when a yes would be easier.
