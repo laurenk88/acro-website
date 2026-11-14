@@ -293,13 +293,18 @@ function WhoFor() {
   return (
     <section className="py-24 md:py-36 bg-cream">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>Who I work with</SectionLabel>
+        <SectionLabel>What you get</SectionLabel>
         <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
-          If the business can't run without you, I can help.
+          Most consultants hand you a plan. I build the thing, then teach you to run it.
         </h2>
-        <p className="mt-10 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
-          Salons, realtors, therapists, attorneys, donut shops. The industry changes, but the problem usually doesn't: everything runs through the owner. Sometimes that looks like sales that won't grow, a team that waits on you for every answer, or a big project nobody has time to run. Whatever it is, we find what's really going on and fix that, not the symptom.
-        </p>
+        <div className="mt-10 space-y-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
+          <p>
+            For a property services owner, that was an app that handles invoicing, proposals, and the requests that used to come in by text all day. For Mini Me Sports, it was a dashboard the leadership team uses and a new website. For a childcare director, it was a personal app she has checked into every day.
+          </p>
+          <p>
+            Salons, realtors, therapists, attorneys, donut shops. If every sale, hire, and question still runs through you, the industry doesn't matter. We find what's really stuck in your business and fix it together.
+          </p>
+        </div>
       </div>
     </section>
   );
