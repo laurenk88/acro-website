@@ -222,24 +222,35 @@ const ctaClass =
 
 function Hero() {
   return (
-    <section id="top" className="pt-40 pb-20 md:pt-48 md:pb-28 scroll-mt-24">
-      <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>Every problem has a solution</SectionLabel>
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.02] text-foreground">
-          Your business runs on you.
-          <br />
-          <span className="text-[color:var(--navy)]">That's </span>
-          <span className="text-[color:var(--navy)] highlight-gold">the problem I fix.</span>
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-[1.5]">
-          I help small business owners shape their business around the life they want to live.
-        </p>
-        <div className="mt-10 flex flex-col items-start gap-3">
-          <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
-            Book a 15-minute call
-            <ArrowRight size={22} />
-          </button>
-          <p className="text-base text-muted-foreground">15 minutes, no cost, no pitch.</p>
+    <section id="top" className="pt-32 pb-20 md:pt-44 md:pb-28 scroll-mt-24">
+      <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1.35fr_1fr] gap-12 md:gap-16 items-center">
+        <div>
+          <SectionLabel>Every problem has a solution</SectionLabel>
+          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold leading-[1.0] tracking-tight text-foreground">
+            Your business runs on you.
+            <br />
+            <span className="text-[color:var(--navy)]">That's </span>
+            <span className="text-[color:var(--navy)] highlight-gold">the problem I fix.</span>
+          </h1>
+          <p className="mt-8 max-w-xl text-lg md:text-xl text-muted-foreground leading-[1.5]">
+            I help small business owners shape their business around the life they want to live.
+          </p>
+          <div className="mt-10 flex flex-col items-start gap-3">
+            <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
+              Book a 15-minute call
+              <ArrowRight size={22} />
+            </button>
+            <p className="text-base text-muted-foreground">15 minutes, no cost, no pitch.</p>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="absolute -inset-3 md:-inset-4 rounded-[2rem] bg-gold/30 -rotate-2" aria-hidden="true" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-muted shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]">
+            <img src={laurenHeadshot} alt="Lauren Kasten" className="w-full h-full object-cover" />
+          </div>
+          <p className="relative mt-5 text-sm text-muted-foreground">
+            <span className="text-foreground font-semibold">Lauren Kasten</span> · Teacher, coach, recruiter, builder
+          </p>
         </div>
       </div>
     </section>
@@ -257,12 +268,13 @@ function SectionLabel({ children }: { children: string }) {
 
 function Proof() {
   return (
-    <section className="py-20 md:py-28 bg-cream">
+    <section className="py-20 md:py-28 bg-navy text-background">
       <div className="mx-auto max-w-5xl px-6">
-        <blockquote className="font-serif text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-4xl">
-          "You actually listened and genuinely cared to take the time to understand."
+        <div className="font-serif text-7xl md:text-8xl leading-none text-[color:var(--gold)]" aria-hidden="true">&ldquo;</div>
+        <blockquote className="-mt-4 font-serif text-3xl md:text-5xl font-medium leading-tight max-w-4xl">
+          You actually listened and genuinely cared to take the time to understand.
         </blockquote>
-        <p className="mt-8 text-base md:text-lg text-muted-foreground">[Name, business]</p>
+        <p className="mt-8 text-base md:text-lg opacity-80">[Name, business]</p>
       </div>
     </section>
   );
@@ -291,7 +303,7 @@ function Different() {
 
 function WhoFor() {
   return (
-    <section className="py-24 md:py-36 bg-cream">
+    <section id="work" className="py-24 md:py-36 bg-cream scroll-mt-24">
       <div className="mx-auto max-w-5xl px-6">
         <SectionLabel>What you get</SectionLabel>
         <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
@@ -304,50 +316,6 @@ function WhoFor() {
           <p>
             Salons, realtors, therapists, attorneys, donut shops. If every sale, hire, and question still runs through you, the industry doesn't matter. We find what's really stuck in your business and fix it together.
           </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Inside() {
-  return (
-    <section className="py-24 md:py-36 bg-paper">
-      <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>Where I learned this</SectionLabel>
-        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
-          I learned this from the inside.
-        </h2>
-        <p className="mt-10 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
-          Mini Me Sports brought me on to build their sales process, because what they had wasn't working. [Stat needed: sales results since you joined.] Once I was inside, I saw the bigger gap. The business ran on its founders, with very little in place to support them. My role grew into operations and marketing. I built a dashboard the leadership team uses, a new website, and one home for all their tools.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function Work() {
-  const stories = [
-    {
-      who: "A property services company",
-      body: "The owner was juggling invoicing and proposals across a pile of separate systems, and requests came in by text all day. I built an app that tracks revenue for every service and handles invoicing and proposals, so requests come through the app instead of his phone. I designed the logo too.",
-    },
-    {
-      who: "A childcare director",
-      body: "She wanted to feel her healthiest by her daughter's wedding. Accountability was the piece missing from every health and fitness program she'd tried before. I built her a personal app with a daily check-in and everything she needs in one place. She has checked in every day.",
-    },
-  ];
-  return (
-    <section id="work" className="py-24 md:py-36 bg-cream scroll-mt-24">
-      <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>Work</SectionLabel>
-        <div className="mt-6 space-y-px bg-border border border-border rounded-2xl overflow-hidden">
-          {stories.map((s) => (
-            <div key={s.who} className="bg-paper px-8 md:px-10 py-8 md:py-10">
-              <h3 className="text-xl md:text-2xl font-medium leading-tight mb-4 text-foreground">{s.who}</h3>
-              <p className="text-base md:text-lg text-muted-foreground leading-[1.6] max-w-3xl">{s.body}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -387,20 +355,7 @@ function NextSteps() {
 function About() {
   return (
     <section id="about" className="py-24 md:py-36 bg-paper scroll-mt-24">
-      <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1fr_1.4fr] gap-12 md:gap-20 items-start">
-        <div className="md:sticky md:top-28">
-          <div className="aspect-[4/5] overflow-hidden rounded-sm bg-muted shadow-[0_30px_60px_-30px_rgba(0,0,0,0.25)]">
-            <img
-              src={laurenHeadshot}
-              alt="Lauren Kasten"
-              className="w-full h-full object-cover grayscale"
-              loading="lazy"
-            />
-          </div>
-          <p className="mt-5 text-sm text-muted-foreground">
-            <span className="text-foreground font-medium">Lauren Kasten</span>
-          </p>
-        </div>
+      <div className="mx-auto max-w-5xl px-6">
         <div>
           <SectionLabel>What I believe</SectionLabel>
           <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground">
@@ -706,8 +661,6 @@ function Index() {
         <Proof />
         <Different />
         <WhoFor />
-        <Inside />
-        <Work />
         <NextSteps />
         <About />
         <Contact />
