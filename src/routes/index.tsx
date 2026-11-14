@@ -235,7 +235,7 @@ function Hero() {
         </p>
         <div className="mt-10 flex flex-col items-start gap-3">
           <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
-            Let's talk
+            Book a 15-minute call
             <ArrowRight size={22} />
           </button>
           <p className="text-base text-muted-foreground">15 minutes, no cost, no pitch.</p>
@@ -254,40 +254,67 @@ function SectionLabel({ children }: { children: string }) {
   );
 }
 
-function TheQuestion() {
+function Proof() {
+  return (
+    <section className="py-20 md:py-28 bg-cream">
+      <div className="mx-auto max-w-5xl px-6">
+        <blockquote className="font-serif text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-4xl">
+          "You actually listened and genuinely cared to take the time to understand."
+        </blockquote>
+        <p className="mt-8 text-base md:text-lg text-muted-foreground">[Name, business]</p>
+      </div>
+    </section>
+  );
+}
+
+function Different() {
+  return (
+    <section className="py-24 md:py-36 bg-paper">
+      <div className="mx-auto max-w-5xl px-6">
+        <SectionLabel>Consultant, teacher, coach</SectionLabel>
+        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
+          I'm a consultant who teaches.
+        </h2>
+        <div className="mt-10 space-y-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
+          <p>
+            I was an elementary teacher and a fitness coach before I ever consulted, and I still work like one. I listen until I understand what you need. Then we build the fix together, and I teach you and your team to run it, so when I step back, you keep going without me.
+          </p>
+          <p className="text-foreground font-medium">
+            I won't recommend a tool I haven't used myself, and I'll tell you the truth even when a yes would be easier.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhoFor() {
   return (
     <section className="py-24 md:py-36 bg-cream">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>I start with one question</SectionLabel>
-        <p className="font-serif text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-4xl">
-          "What do you want that your business keeps getting in the way of?"
-        </p>
+        <SectionLabel>Who I work with</SectionLabel>
+        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
+          If the business can't run without you, I can help.
+        </h2>
         <p className="mt-10 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
-          Most people start with the business. I start with you. Once I know what you're after, we look at what's eating your time and build around that.
+          Salons, realtors, therapists, attorneys, donut shops. The industry changes, but the problem usually doesn't: everything runs through the owner. Sometimes that looks like sales that won't grow, a team that waits on you for every answer, or a big project nobody has time to run. Whatever it is, we find what's really going on and fix that, not the symptom.
         </p>
       </div>
     </section>
   );
 }
 
-function HowIWork() {
-  const steps = [
-    { title: "Listen", body: "The first conversation is about you, not just the business." },
-    { title: "Fit", body: "Everything gets built around how you actually work and live." },
-    { title: "Teach", body: "You leave able to run it without me." },
-  ];
+function Inside() {
   return (
-    <section id="how" className="py-24 md:py-36 bg-paper scroll-mt-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>How I work</SectionLabel>
-        <div className="mt-6 grid md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
-          {steps.map((s) => (
-            <div key={s.title} className="bg-background p-8 md:p-10">
-              <h3 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-4 text-foreground">{s.title}</h3>
-              <p className="text-base md:text-lg text-muted-foreground leading-[1.5]">{s.body}</p>
-            </div>
-          ))}
-        </div>
+    <section className="py-24 md:py-36 bg-paper">
+      <div className="mx-auto max-w-5xl px-6">
+        <SectionLabel>Where I learned this</SectionLabel>
+        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
+          I learned this from the inside.
+        </h2>
+        <p className="mt-10 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
+          Mini Me Sports brought me on to build their sales process, because what they had wasn't working. [Stat needed: sales results since you joined.] Once I was inside, I saw the bigger gap. The business ran on its founders, with very little in place to support them. My role grew into operations and marketing. I built a dashboard the leadership team uses, a new website, and one home for all their tools.
+        </p>
       </div>
     </section>
   );
@@ -295,10 +322,6 @@ function HowIWork() {
 
 function Work() {
   const stories = [
-    {
-      who: "A youth sports company",
-      body: "Everything lived in the owner's head. There were no systems and no processes. I built a dashboard the whole leadership team can use, a new website, and one connected home for their systems, set up so the company can grow into it. Cutting the extra apps and services saved them money.",
-    },
     {
       who: "A property services company",
       body: "The owner was juggling invoicing and proposals across a pile of separate systems, and requests came in by text all day. I built an app that tracks revenue for every service and handles invoicing and proposals, so requests come through the app instead of his phone. I designed the logo too.",
@@ -319,6 +342,36 @@ function Work() {
               <p className="text-base md:text-lg text-muted-foreground leading-[1.6] max-w-3xl">{s.body}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NextSteps() {
+  const steps = [
+    { title: "A 15-minute call", body: "You tell me what's going on. No pitch." },
+    { title: "A discovery meeting", body: "I learn how the business really runs and what you want from it." },
+    { title: "A proposal", body: "A clear plan: what I'll do, what it costs, and how long it takes." },
+  ];
+  return (
+    <section id="how" className="py-24 md:py-36 bg-paper scroll-mt-24">
+      <div className="mx-auto max-w-6xl px-6">
+        <SectionLabel>What happens next</SectionLabel>
+        <div className="mt-6 grid md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+          {steps.map((s, i) => (
+            <div key={s.title} className="bg-background p-8 md:p-10">
+              <div className="font-sans text-4xl text-[color:var(--gold)] mb-5 tabular-nums">{String(i + 1).padStart(2, "0")}</div>
+              <h3 className="font-serif text-2xl md:text-3xl font-medium leading-tight mb-3 text-foreground">{s.title}</h3>
+              <p className="text-base md:text-lg text-muted-foreground leading-[1.5]">{s.body}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12">
+          <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
+            Book your 15-minute call
+            <ArrowRight size={22} />
+          </button>
         </div>
       </div>
     </section>
@@ -644,9 +697,12 @@ function Index() {
       <Nav />
       <main className="flex flex-col gap-6 md:gap-8">
         <Hero />
-        <TheQuestion />
-        <HowIWork />
+        <Proof />
+        <Different />
+        <WhoFor />
+        <Inside />
         <Work />
+        <NextSteps />
         <About />
         <Contact />
       </main>
