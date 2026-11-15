@@ -274,7 +274,6 @@ function Proof() {
         <blockquote className="-mt-4 font-serif text-3xl md:text-5xl font-medium leading-tight max-w-4xl">
           You actually listened and genuinely cared to take the time to understand.
         </blockquote>
-        <p className="mt-8 text-base md:text-lg opacity-80">[Name, business]</p>
       </div>
     </section>
   );
