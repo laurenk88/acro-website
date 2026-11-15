@@ -334,7 +334,7 @@ function About() {
             <img
               src={laurenHeadshot}
               alt="Lauren Kasten"
-              className="w-full h-full object-cover grayscale"
+              className="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
