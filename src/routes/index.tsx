@@ -222,23 +222,35 @@ const ctaClass =
 
 function Hero() {
   return (
-    <section id="top" className="pt-40 pb-20 md:pt-48 md:pb-28 scroll-mt-24">
-      <div className="mx-auto max-w-5xl px-6">
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.02] text-foreground">
-          Your business runs on you.
-          <br />
-          <span className="text-[color:var(--navy)]">That's </span>
-          <span className="text-[color:var(--navy)] highlight-gold">the problem I fix.</span>
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-[1.5]">
-          I help small business owners shape their business around the life they want to live.
-        </p>
-        <div className="mt-10 flex flex-col items-start gap-3">
-          <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
-            Let's talk
-            <ArrowRight size={22} />
-          </button>
-          <p className="text-base text-muted-foreground">15 minutes, no cost, no pitch.</p>
+    <section id="top" className="pt-32 pb-20 md:pt-44 md:pb-28 scroll-mt-24">
+      <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1.35fr_1fr] gap-12 md:gap-16 items-center">
+        <div>
+          <SectionLabel>Every problem has a solution</SectionLabel>
+          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold leading-[1.0] tracking-tight text-foreground">
+            Your business runs on you.
+            <br />
+            <span className="text-[color:var(--navy)]">That's </span>
+            <span className="text-[color:var(--navy)] highlight-gold">the problem I fix.</span>
+          </h1>
+          <p className="mt-8 max-w-xl text-lg md:text-xl text-muted-foreground leading-[1.5]">
+            I help small business owners shape their business around the life they want to live.
+          </p>
+          <div className="mt-10 flex flex-col items-start gap-3">
+            <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
+              Book a 15-minute call
+              <ArrowRight size={22} />
+            </button>
+            <p className="text-base text-muted-foreground">15 minutes, no cost, no pitch.</p>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="absolute -inset-3 md:-inset-4 rounded-[2rem] bg-gold/30 -rotate-2" aria-hidden="true" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-muted shadow-[0_30px_60px_-30px_rgba(0,0,0,0.35)]">
+            <img src={laurenHeadshot} alt="Lauren Kasten" className="w-full h-full object-cover" />
+          </div>
+          <p className="relative mt-5 text-sm text-muted-foreground">
+            <span className="text-foreground font-semibold">Lauren Kasten</span> · Teacher, coach, recruiter, builder
+          </p>
         </div>
       </div>
     </section>
@@ -254,71 +266,85 @@ function SectionLabel({ children }: { children: string }) {
   );
 }
 
-function TheQuestion() {
+function Proof() {
   return (
-    <section className="py-24 md:py-36 bg-cream">
+    <section className="py-20 md:py-28 bg-navy text-background">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>I start with one question</SectionLabel>
-        <p className="font-serif text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-4xl">
-          "What do you want that your business keeps getting in the way of?"
-        </p>
-        <p className="mt-10 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
-          Most people start with the business. I start with you. Once I know what you're after, we look at what's eating your time and build around that.
-        </p>
+        <div className="font-serif text-7xl md:text-8xl leading-none text-[color:var(--gold)]" aria-hidden="true">&ldquo;</div>
+        <blockquote className="-mt-4 font-serif text-3xl md:text-5xl font-medium leading-tight max-w-4xl">
+          You actually listened and genuinely cared to take the time to understand.
+        </blockquote>
       </div>
     </section>
   );
 }
 
-function HowIWork() {
-  const steps = [
-    { title: "Listen", body: "The first conversation is about you, not just the business." },
-    { title: "Fit", body: "Everything gets built around how you actually work and live." },
-    { title: "Teach", body: "You leave able to run it without me." },
-  ];
+function Different() {
   return (
-    <section id="how" className="py-24 md:py-36 bg-paper scroll-mt-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <SectionLabel>How I work</SectionLabel>
-        <div className="mt-6 grid md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
-          {steps.map((s) => (
-            <div key={s.title} className="bg-background p-8 md:p-10">
-              <h3 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-4 text-foreground">{s.title}</h3>
-              <p className="text-base md:text-lg text-muted-foreground leading-[1.5]">{s.body}</p>
-            </div>
-          ))}
+    <section className="py-24 md:py-36 bg-paper">
+      <div className="mx-auto max-w-5xl px-6">
+        <SectionLabel>Consultant, teacher, coach</SectionLabel>
+        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
+          I'm a consultant who teaches.
+        </h2>
+        <div className="mt-10 space-y-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
+          <p>
+            I was an elementary teacher, a fitness coach, and a technical recruiter before I ever consulted, and I still work like one. I listen until I understand what you need. Then we build the fix together, and I teach you and your team to run it, so when I step back, you keep going without me.
+          </p>
+          <p className="text-foreground font-medium">
+            I won't recommend a tool I haven't used myself, and I'll tell you the truth even when a yes would be easier.
+          </p>
         </div>
       </div>
     </section>
   );
 }
 
-function Work() {
-  const stories = [
-    {
-      who: "A youth sports company",
-      body: "Everything lived in the owner's head. There were no systems and no processes. I built a dashboard the whole leadership team can use, a new website, and one connected home for their systems, set up so the company can grow into it. Cutting the extra apps and services saved them money.",
-    },
-    {
-      who: "A property services company",
-      body: "The owner was juggling invoicing and proposals across a pile of separate systems, and requests came in by text all day. I built an app that tracks revenue for every service and handles invoicing and proposals, so requests come through the app instead of his phone. I designed the logo too.",
-    },
-    {
-      who: "A childcare director",
-      body: "She wanted to feel her healthiest by her daughter's wedding. Accountability was the piece missing from every health and fitness program she'd tried before. I built her a personal app with a daily check-in and everything she needs in one place. She has checked in every day.",
-    },
-  ];
+function WhoFor() {
   return (
     <section id="work" className="py-24 md:py-36 bg-cream scroll-mt-24">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionLabel>Work</SectionLabel>
-        <div className="mt-6 space-y-px bg-border border border-border rounded-2xl overflow-hidden">
-          {stories.map((s) => (
-            <div key={s.who} className="bg-paper px-8 md:px-10 py-8 md:py-10">
-              <h3 className="text-xl md:text-2xl font-medium leading-tight mb-4 text-foreground">{s.who}</h3>
-              <p className="text-base md:text-lg text-muted-foreground leading-[1.6] max-w-3xl">{s.body}</p>
+        <SectionLabel>What you get</SectionLabel>
+        <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground max-w-3xl">
+          Most consultants hand you a plan. I build the thing, then teach you to run it.
+        </h2>
+        <div className="mt-10 space-y-6 text-lg md:text-xl text-muted-foreground leading-[1.5] max-w-3xl">
+          <p>
+            For a property services owner, that was an app that handles invoicing, proposals, and the requests that used to come in by text all day. For Mini Me Sports, it was a dashboard the leadership team uses and a new website. For a childcare director, it was a personal app she has checked into every day.
+          </p>
+          <p>
+            Salons, realtors, therapists, attorneys, donut shops. If every sale, hire, and question still runs through you, the industry doesn't matter. We find what's really stuck in your business and fix it together.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NextSteps() {
+  const steps = [
+    { title: "A 15-minute call", body: "You tell me what's going on. No pitch." },
+    { title: "A discovery meeting", body: "I learn how the business really runs and what you want from it." },
+    { title: "A proposal", body: "A clear plan: what I'll do, what it costs, and how long it takes." },
+  ];
+  return (
+    <section id="how" className="py-24 md:py-36 bg-paper scroll-mt-24">
+      <div className="mx-auto max-w-6xl px-6">
+        <SectionLabel>What happens next</SectionLabel>
+        <div className="mt-6 grid md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+          {steps.map((s, i) => (
+            <div key={s.title} className="bg-background p-8 md:p-10">
+              <div className="font-sans text-4xl text-[color:var(--gold)] mb-5 tabular-nums">{String(i + 1).padStart(2, "0")}</div>
+              <h3 className="font-serif text-2xl md:text-3xl font-medium leading-tight mb-3 text-foreground">{s.title}</h3>
+              <p className="text-base md:text-lg text-muted-foreground leading-[1.5]">{s.body}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-12">
+          <button type="button" onClick={openCalendlyPopup} className={ctaClass}>
+            Book your 15-minute call
+            <ArrowRight size={22} />
+          </button>
         </div>
       </div>
     </section>
@@ -328,31 +354,18 @@ function Work() {
 function About() {
   return (
     <section id="about" className="py-24 md:py-36 bg-paper scroll-mt-24">
-      <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1fr_1.4fr] gap-12 md:gap-20 items-start">
-        <div className="md:sticky md:top-28">
-          <div className="aspect-[4/5] overflow-hidden rounded-sm bg-muted shadow-[0_30px_60px_-30px_rgba(0,0,0,0.25)]">
-            <img
-              src={laurenHeadshot}
-              alt="Lauren Kasten"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <p className="mt-5 text-sm text-muted-foreground">
-            <span className="text-foreground font-medium">Lauren Kasten</span>
-          </p>
-        </div>
+      <div className="mx-auto max-w-5xl px-6">
         <div>
-          <SectionLabel>I never left teaching</SectionLabel>
-          <div className="space-y-8 text-lg md:text-xl leading-[1.5] text-foreground">
+          <SectionLabel>What I believe</SectionLabel>
+          <h2 className="text-3xl md:text-5xl font-medium leading-tight text-foreground">
+            Every problem has a solution.
+          </h2>
+          <div className="mt-8 space-y-8 text-lg md:text-xl leading-[1.5] text-foreground">
             <p>
-              I got my master's thinking I'd spend my career as an elementary teacher. That's not how it went. The next 11 years zigzagged: teaching, then coaching and managing in fitness, back to teaching, then corporate recruiting.
+              It's one of the beliefs I've lived by since becoming an entrepreneur. I keep listening until I find the real fix, and I don't stop at a band-aid.
             </p>
             <p>
-              The same thing kept happening in every job. Fly Feet members asked me to coach them one on one on their health and nutrition. Candidates told me they loved working with me because I listened, and the jobs I brought them fit what they wanted. I was teaching, and I was building trust.
-            </p>
-            <p>
-              Now I do it with small business owners. I see people working around the clock with apps and tools scattered everywhere, none of it set up for how they work. There's a better way. I help you find it, build it, and run it without me.
+              People have trusted me with their problems in every job I've had. Fly Feet members asked me to coach them one on one on their health and nutrition. Candidates told me they loved working with me because I listened, and the jobs I brought them fit what they wanted.
             </p>
             <p className="font-medium">
               I work with owners who are great at what they do and tired of carrying all of it alone.
@@ -644,9 +657,10 @@ function Index() {
       <Nav />
       <main className="flex flex-col gap-6 md:gap-8">
         <Hero />
-        <TheQuestion />
-        <HowIWork />
-        <Work />
+        <Proof />
+        <Different />
+        <WhoFor />
+        <NextSteps />
         <About />
         <Contact />
       </main>
